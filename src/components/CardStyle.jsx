@@ -1,54 +1,57 @@
 import React, { useState } from "react";
+import Dialogue from "./Dialogue";
 
 const CardStyle = ({ title, imageURL, description }) => {
-  const handleClick = () => {
-    console.log(`Clicked on image`);
-  };
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  const [showFullDescription, setShowFullDescription] = useState(false);
-
-  const toggleDescription = () => {
-    setShowFullDescription(!showFullDescription);
+  const toggleDialog = () => {
+    setIsDialogOpen(!isDialogOpen);
   };
 
   const firstFullStopIndex = description.indexOf(".");
-
-  const truncatedDescription = showFullDescription
-    ? description
-    : description.substring(0, firstFullStopIndex + 1);
+  const cardHeight = 50; 
 
   return (
     <div className="flex justify-center mt-10">
-      <label
-        className="border border-gray-300 rounded-xl shadow-2xl shadow-red-700/50 w-[27rem] h-auto"
-        onClick={handleClick}
-      >
+      <label className=" border border-black rounded-md bg-black shadow-2xl shadow-red-700/50 w-[27rem] h-[32rem] relative">
         <img
           src={imageURL}
-          className="border rounded-xl w-[30rem] h-[20rem]"
+          className=" border border-black rounded-md  w-[27rem] h-[20rem]"
           alt=""
         />
-        <h1 className="text-white text-xl mt-2 hover:text-gray-500 underline  border  bg-[#C084FC] hover:bg-white rounded-xl">{title}</h1>
-        <p className="text-white">
-          {truncatedDescription}
-          {description.length > firstFullStopIndex + 1 && (
-            <span
-              onClick={toggleDescription}
-              className="cursor-pointer text-blue-500"
-            >
-              {showFullDescription ? (
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-9 h-9 border ml-2  text-white border-white p-2 rounded-full">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5" />
-                </svg>
-              ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-9 h-9 border ml-2 text-white border-purple-400 rounded-full">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" />
-                </svg>
-              )}
-            </span>
+        <h1 className=" hover:text-black font-bold text-xl flex justify-center text-gray-500    hover:bg-[#ed3082] bg-white  p-2">
+          {title}
+        </h1>
+        <div
+          className="text-white mt-2 ml-2"
+          style={{
+            maxHeight: `calc(${cardHeight}rem - 2rem)`, 
+            overflowY: "auto",
+          }}
+        >
+          {description.length > firstFullStopIndex + 1 ? (
+            <>
+              {description.substring(0, firstFullStopIndex + 1)}
+              <span onClick={toggleDialog} className="cursor-pointer text-blue-500 absolute bottom-5 right-5">
+                {isDialogOpen ? (
+                  ""
+                ) : (
+                  <span className="border bg-white text-black p-1 ">Read More</span>
+                )}
+              </span>
+            </>
+          ) : (
+            description
           )}
-        </p>
+        </div>
       </label>
+
+      <Dialogue
+        isOpen={isDialogOpen}
+        onClose={toggleDialog}
+        title={title}
+        description={description}
+      />
     </div>
   );
 };

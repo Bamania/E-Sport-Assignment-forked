@@ -1,17 +1,17 @@
 import React from 'react'
-
+// import logo from '../../public/'
 const Navbar = () => {
   return (
-    <div className='bg-purple-400 flex justify-between items-center'>
+    <div className='bg-[#FA1D7C] flex justify-between items-center'>
         <div>
         <img className='w-[7rem] h-[5rem]' 
-        src='https://o.remove.bg/downloads/5a833ba1-ddd6-4c56-afa8-33808ae5d44b/pngtree-esports-free-png-and-vector-picture-image_3629319-removebg-preview.png' alt="" />
+        src='/logo.png' alt="" />
         </div>
-        <div className='flex gap-4 mr-5 '>
-            <h1 className='text-xl hover:underline'>E-Sport</h1>
-            <h1 className='text-xl hover:underline'>About</h1>
-            <h1 className='text-xl hover:underline'>Contact</h1>
-            <h1 className='text-xl hover:underline'>Team</h1>
+        <div className='flex gap-20 mr-8 '>
+            <h1 className='text-[20px] hover:underline font-semibold cursor-pointer'>E-Sport</h1>
+            <h1 className='text-[20px] hover:underline font-semibold cursor-pointer'>About</h1>
+            <h1 className='text-[20px] hover:underline font-semibold cursor-pointer'>Contact</h1>
+            <h1 className='text-[20px] hover:underline font-semibold cursor-pointer'>Team</h1>
         </div>
     </div>
   )
