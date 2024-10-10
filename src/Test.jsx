@@ -7,13 +7,7 @@ export const Test = () => {
 
 
             <h1>Added h1 tag for test 2</h1>
-            <h1>Added h1 tag for test 3</h1>
-            <h1>Added h1 tag for test 4</h1>
-            <h1>Added h1 tag for test 5</h1>
-            <h1>Added h1 tag for test 6</h1>
-            <h1>Added h1 tag for test 7</h1>
-            <h1>Added h1 tag for test 8</h1>
-
+            <h1>added a final test to the file</h1>
             
         </div>
     )
