@@ -8,7 +8,7 @@ export const Test = () => {
 
             <h1>Added h1 tag for test 2</h1>
             <h1>added a final test to the file</h1>
-            <h1>added the latest filasa</h1>
+            <h1>added the latest fila</h1>
 
             
         </div>
