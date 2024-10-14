@@ -7,7 +7,7 @@ export const Test = () => {
 
 
             <h1>Added h1 tag for test 2</h1>
-            <h1>its a github ai pr review test</h1>
+            <h1>addded a new file for github pr review test</h1>
             
            
           
